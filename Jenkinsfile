@@ -6,7 +6,7 @@ pipeline {
     }
     stages {
         stage('Checkout Source') {
-            steps {
+            steps ([$class: 'WsCleanup']){
                 ws("${workspace}") {
                     checkout scm
                 }
