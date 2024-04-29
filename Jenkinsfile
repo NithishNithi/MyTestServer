@@ -1,12 +1,12 @@
 pipeline {
     agent any
-
     environment {
         compose_service_name = "react-jenkins-docker"
+        workspace = "/home/jenkins/project/react-jenkins-docker/"
     }
     stages {
         stage('Checkout Source') {
-            steps ([$class: 'WsCleanup']){
+            steps {
                 ws("${workspace}") {
                     checkout scm
                 }
