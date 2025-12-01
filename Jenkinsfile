@@ -6,6 +6,11 @@ pipeline {
         choice(name: 'DEPLOY_ENV', choices: ['development', 'staging', 'production'], description: 'Deployment Environment')
         booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Run tests before deploying?')
         text(name: 'CUSTOM_MESSAGE', defaultValue: '', description: 'Custom message for the deployment')
+        gitParameter(
+            name: 'TAG_NAME', 
+            type: 'PT_BRANCH_TAG', 
+            description: 'Enter the Branch Name'
+        )
     }
 
     environment {
